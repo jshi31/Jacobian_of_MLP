@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time  : 4/12/19 3:38 PM
+# @Author: Jing Shi
+# @Email : j.shi@rochester.edu
 import torch.nn as nn
 import torch
 
