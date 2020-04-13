@@ -29,7 +29,7 @@ class MLP(nn.Module):
             layers.append(nn.Linear(n_units, n_units))
         layers.append(nonlinear())
         layers.append(nn.Linear(n_units, n_outputs))
-        self.layers = layers
+        self.layers = nn.Sequential(*layers)
 
     def get_inv_nonliner(self):
         """
@@ -45,8 +45,7 @@ class MLP(nn.Module):
         return inv
 
     def forward(self, x):
-        for layer_i, layer in enumerate(self.layers):
-            x = layer(x)
+        x = self.layers(x)
         return x
 
     def jacobian(self, x):
